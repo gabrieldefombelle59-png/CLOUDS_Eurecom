@@ -51,6 +51,23 @@ def parse_gcloud_config(raw: str) -> dict:
     # TODO: parse `raw` as JSON and return {"account": ..., "project": ...}
     #       from the "core" section. Return empty strings if raw is empty or a
     #       field is missing.
+    result = {"account": "", "project": ""}
+
+    if not raw or not raw.strip():
+        return result
+
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        return result
+
+    if isinstance(data, dict):
+        core = data.get("core")
+        if isinstance(core, dict):
+            result["account"] = core.get("account") or ""
+            result["project"] = core.get("project") or ""
+
+    return result
     raise NotImplementedError("Phase 0: implement parse_gcloud_config()")
 
 
@@ -69,6 +86,32 @@ def parse_repo_slug(remote_url: str) -> str:
     """
     # TODO: return "owner/repo" for both the HTTPS and SSH forms shown above.
     #       Strip any trailing ".git". Return "" if not a github.com URL.
+    if not remote_url:
+        return ""
+
+    url = remote_url.strip()
+
+    prefixes = ("https://github.com/", "http://github.com/", "git@github.com:")
+    matched_prefix = None
+    for prefix in prefixes:
+        if url.startswith(prefix):
+            matched_prefix = prefix
+            break
+
+    if not matched_prefix:
+        return ""
+
+    path = url[len(matched_prefix):]
+
+    path = path.rstrip("/")
+    if path.endswith(".git"):
+        path = path[:-4]
+
+    parts = path.split("/")
+    if len(parts) == 2 and parts[0] and parts[1]:
+        return f"{parts[0]}/{parts[1]}"
+
+    return ""
     raise NotImplementedError("Phase 0: implement parse_repo_slug()")
 
 
