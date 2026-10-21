@@ -1,0 +1,24 @@
+{
+  "phase": "0",
+  "environment": {
+    "cloud_shell": true
+  },
+  "python": {
+    "version": "3.12.3",
+    "ok": true
+  },
+  "gcloud": {
+    "account": "gabrieldefombelle59@gmail.com",
+    "project": "project-bede936a-2fa3-4388-84d",
+    "error": null
+  },
+  "docker": {
+    "version": "Docker version 29.8.2, build 7fc2dff",
+    "present": true
+  },
+  "git": {
+    "remote": "https://github.com/gabrieldefombelle59-png/CLOUDS_Eurecom.git",
+    "is_github": true,
+    "slug": "gabrieldefombelle59-png/CLOUDS_Eurecom"
+  }
+}
