@@ -1,0 +1,30 @@
+{
+  "phase": "2",
+  "environment": {
+    "colab": true
+  },
+  "attention": {
+    "naive_ms": 246.699,
+    "vectorized_ms": 0.992,
+    "speedup": 248.69
+  },
+  "threads": {
+    "1": 2314.168,
+    "2": 1988.514,
+    "4": 2665.338,
+    "8": 2291.955
+  },
+  "devices": {
+    "cpu_ms": 434812.6,
+    "gpu_ms": 13251.2
+  },
+  "training": {
+    "steps": 2000,
+    "final_loss": 1.521,
+    "param_count": 4935680
+  },
+  "sample": "\nCOFORK:\nWhat, I'll good marry,--accaptire, not ho\nwithout but the charge of my grace; beave now\nmore it us duturned posse, see as thine, and prove\nto rest:' the in nock if come time,\ngood toboy: awake",
+  "model": {
+    "gcs_url": "https://storage.googleapis.com/project-bede936a-2fa3-4388-84d-eurecomgpt/model.safetensors"
+  }
+}
